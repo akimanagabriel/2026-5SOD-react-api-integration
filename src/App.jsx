@@ -38,7 +38,7 @@ export default function App() {
             <img
               src={item.image}
               alt=""
-              className="h-[200px]"
+              className="h-50"
             />
             <h2>
               {item.id}. {item.title}
