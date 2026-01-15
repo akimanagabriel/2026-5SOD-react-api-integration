@@ -34,7 +34,7 @@ function SingleProductVIew() {
           </h1>
           <p>{product.description}</p>
           <h1 className="text-5xl mt-4 ">${product.price}</h1>
-        </div>
+        </div>\
 
         <div className="space-x-5">
           <button className="px-6 py-2 text-white bg-orange-700 hover:bg-orange-400 rounded-xl">
