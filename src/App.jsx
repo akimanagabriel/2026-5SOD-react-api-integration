@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function App() {
   // define a state to store data from fakestore
@@ -35,15 +36,17 @@ export default function App() {
             className=" shadow rounded-2xl p-5"
             key={item.id}
           >
-            <img
-              src={item.image}
-              alt=""
-              className="h-50"
-            />
-            <h2>
-              {item.id}. {item.title}
-            </h2>
-            <p>{item.description}</p>
+            <Link to={"product/" + item.id}>
+              <img
+                src={item.image}
+                alt=""
+                className="h-50"
+              />
+              <h2 className="text-2xl font-bold my-3 line-clamp-1">
+                {item.id}. {item.title}
+              </h2>
+              <p className="line-clamp-2">{item.description}</p>
+            </Link>
           </div>
         ))}
       </div>
