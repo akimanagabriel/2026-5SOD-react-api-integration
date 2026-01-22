@@ -2,15 +2,21 @@ import axios from "axios";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function App() {
   // define a state to store data from fakestore
   const [products, setProducts] = useState([]);
   // a fn to read a products from fakestore backend
   async function getAllProducts() {
-    const response = await axios.get("https://fakestoreapi.com/products");
-    // console.log(response.data);
-    setProducts(response.data);
+    try {
+      const response = await axios.get("https://fakestoreapi.com/products");
+      // console.log(response.data);
+      setProducts(response.data);
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
   }
 
   // use side effect to load all data at initial component mount
